@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your online presence — options and packages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF8;
+    --ink:#1B2A30;
+    --muted:#5E7076;
+    --accent:#116070;
+    --amber:#B8804A;
+    --rule:#DFDDD7;
+    --band:#EEF1F0;
+    --disp:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    --body:"Newsreader",Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.68}
+  .wrap{max-width:900px;margin:0 auto;padding:0 44px}
+  p{max-width:34em;margin:0 0 18px}
+  ul{max-width:34em;margin:0 0 18px;padding-left:1.15em}
+  li{margin-bottom:8px}
+  li::marker{color:var(--accent)}
+  strong{font-weight:500}
+  *:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+  .internal{background:#241D14;color:#F3EDE3;font-family:var(--disp);font-size:14px;line-height:1.55;padding:16px 44px}
+  .internal b{color:#E8C48A}
+
+  h2{font-family:var(--disp);font-weight:600;font-size:clamp(27px,3.5vw,36px);line-height:1.15;letter-spacing:-.018em;margin:0 0 18px;max-width:26em}
+  h3{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.01em;margin:32px 0 8px}
+  h4{font-family:var(--disp);font-weight:600;font-size:15.5px;margin:24px 0 8px}
+
+  .hero{padding:96px 0 76px}
+  .hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(36px,5.8vw,58px);line-height:1.06;letter-spacing:-.022em;margin:0 0 26px;max-width:20em}
+  .hero p{font-size:22px;line-height:1.52;max-width:31em}
+  .hero .soft{color:var(--muted)}
+  .jump{display:inline-block;font-family:var(--disp);font-size:16px;font-weight:600;background:var(--ink);color:var(--paper);padding:14px 24px;text-decoration:none;margin-top:14px}
+  .jump:hover{background:var(--accent)}
+
+  .band{background:var(--band);padding:70px 0}
+  .sect{padding:70px 0;border-bottom:1px solid var(--rule)}
+  .sect:last-of-type{border-bottom:0}
+
+  .optgroup{margin:0 0 46px;max-width:42em}
+  .optgroup:last-child{margin-bottom:0}
+  .optgroup h3{margin:0 0 6px;font-size:22px}
+  .optgroup .intro{font-size:17.5px;color:var(--muted);margin:0 0 16px;max-width:33em}
+  .opt{padding:16px 0;border-top:1px solid var(--rule)}
+  .opt:last-of-type{border-bottom:1px solid var(--rule)}
+  .opt-name{font-family:var(--disp);font-size:17.5px;font-weight:600;margin:0}
+  .opt-desc{margin:4px 0 0;font-size:17.5px;line-height:1.55;max-width:32em}
+  .opt-list{margin:8px 0 0;font-size:17px;padding-left:1.1em}
+  .opt-list li{margin-bottom:4px}
+  .after{font-size:17px;color:var(--muted);margin:16px 0 0;max-width:33em}
+
+  .practical{background:var(--paper);border-left:3px solid var(--accent);padding:24px 28px;margin:22px 0 0;max-width:40em}
+  .band .practical{background:#FBFAF8}
+  .practical h4{margin-top:0}
+  .practical ul{margin-bottom:0;font-size:17px}
+  .practical p:last-child{margin-bottom:0}
+
+  .notebox{border:1px solid var(--rule);background:var(--paper);padding:26px 30px;margin:24px 0 0;max-width:41em}
+  .band .notebox{background:#FBFAF8}
+  .notebox h4{margin-top:0}
+  .notebox p:last-child,.notebox ul:last-child{margin-bottom:0}
+  .notebox ul{font-size:17px}
+
+  .quiz{background:var(--ink);color:#F3F6F5;padding:70px 0}
+  .quiz h2{color:#fff}
+  .quiz p{color:#C9D4D5}
+  .q{margin:0 0 28px;max-width:39em}
+  .q-label{font-family:var(--disp);font-size:17px;font-weight:600;color:#fff;margin:0 0 12px;display:block}
+  .q-opts{display:grid;gap:8px}
+  .q-opts label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;border:1px solid #3A4A50;padding:12px 16px;font-size:17px;line-height:1.45;background:#22333A}
+  .q-opts label:hover{border-color:var(--amber)}
+  .q-opts input{margin:5px 0 0;accent-color:var(--amber);flex:0 0 auto}
+  .q-opts span{color:#C9D4D5}
+  .q-opts label:has(input:checked){border-color:var(--amber);background:#2A3D45}
+  .q-opts label:has(input:checked) span{color:#fff}
+  .quiz-btn{font-family:var(--disp);font-size:17px;font-weight:600;cursor:pointer;background:var(--amber);color:#211A11;border:0;padding:15px 28px;margin-top:6px}
+  .quiz-btn:hover{background:#C78D52}
+  .quiz-hint{font-family:var(--disp);font-size:14.5px;color:#9FAFB2;margin:14px 0 0}
+
+  #result{margin:40px 0 0;display:none}
+  #result.on{display:block}
+  .res-card{background:#F3F6F5;color:var(--ink);padding:30px 32px;margin:0 0 14px}
+  .res-tag{font-family:var(--disp);font-size:12.5px;font-weight:700;color:#fff;background:var(--accent);padding:3px 9px;display:inline-block;margin-bottom:12px}
+  .res-card h3{margin:0 0 10px;font-size:clamp(23px,3vw,30px)}
+  .res-card p{color:var(--ink);max-width:32em}
+  .res-price{font-family:var(--disp);font-size:19px;font-weight:700;color:var(--accent);margin:14px 0 0}
+  .res-opts{margin:20px 0 0;background:#22333A;border:1px solid #3A4A50;padding:24px 28px}
+  .res-opts h4{color:#fff;margin:0 0 14px}
+  .res-row{display:grid;grid-template-columns:150px 1fr;gap:4px 20px;padding:10px 0;border-top:1px solid #31444B}
+  .res-row:first-of-type{border-top:0}
+  .res-k{font-family:var(--disp);font-size:14px;font-weight:600;color:var(--amber)}
+  .res-v{font-size:17px;line-height:1.45;color:#DAE2E3}
+  @media (max-width:700px){.res-row{grid-template-columns:1fr;gap:2px}.res-card,.res-opts{padding:20px 18px}}
+
+  .pkg{border-top:2px solid var(--ink);padding:30px 0 34px}
+  .pkg:last-of-type{border-bottom:2px solid var(--ink)}
+  .pkg-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:4px}
+  .pkg-no{font-family:var(--disp);font-size:14.5px;font-weight:600;color:var(--amber)}
+  .pkg-name{font-family:var(--disp);font-size:clamp(23px,3vw,29px);font-weight:600;letter-spacing:-.014em;margin:0}
+  .pkg-fit{color:var(--muted);font-size:17.5px;max-width:33em;margin:0 0 16px}
+  .inherit{font-family:var(--disp);font-size:15px;font-weight:500;color:var(--accent);margin:0 0 12px}
+  .pkg ul{font-size:17.5px}
+  .pkg ul li{margin-bottom:6px;line-height:1.5}
+  .tags{margin:18px 0 0;max-width:40em;display:flex;flex-wrap:wrap;gap:10px 34px;border-top:1px solid var(--rule);padding-top:16px}
+  .tag{display:flex;flex-direction:column;gap:1px}
+  .tag-k{font-family:var(--disp);font-size:13.5px;font-weight:600;color:var(--muted)}
+  .tag-v{font-family:var(--disp);font-size:23px;font-weight:700;letter-spacing:-.01em}
+  .pkg-note{font-size:16.5px;color:var(--muted);margin:14px 0 0;max-width:33em}
+
+  .subs{margin:24px 0 0;max-width:41em;border-top:2px solid var(--ink)}
+  .sub-row{display:grid;grid-template-columns:1fr auto;gap:6px 30px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+  .sub-name{font-family:var(--disp);font-size:17px;font-weight:600;margin:0}
+  .sub-what{font-size:16.5px;color:var(--muted);margin:3px 0 0;max-width:29em;line-height:1.5}
+  .sub-amt{text-align:right;white-space:nowrap}
+  .sub-m{font-family:var(--disp);font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
+  .sub-y{font-size:14.5px;color:var(--muted);margin-top:2px}
+  @media (max-width:640px){.sub-row{grid-template-columns:1fr;gap:2px}.sub-amt{text-align:left}}
+
+  .callout{border:1px solid var(--ink);padding:28px 30px;margin:36px 0 0;max-width:37em}
+  .callout h3{margin-top:0}
+  .callout p:last-child{margin-bottom:0}
+
+  .close{padding:80px 0 36px}
+  .close h2{font-size:clamp(28px,4vw,40px);max-width:22em}
+  .cta{margin:38px 0 0;padding:30px 0 0;border-top:2px solid var(--ink)}
+  .cta-line{font-family:var(--disp);font-size:19px;font-weight:600;margin:0 0 8px}
+  .cta-contact{font-family:var(--disp);font-size:17px;font-weight:500;color:var(--accent)}
+  .cta-contact a{color:inherit;text-decoration:none}
+  .cta-contact a:hover{text-decoration:underline;text-underline-offset:3px}
+  footer{padding:0 0 84px;color:var(--muted);font-size:16px}
+
+  @media (max-width:700px){
+    body{font-size:18px}
+    .wrap{padding:0 24px}
+    .internal{padding:14px 24px}
+    .hero{padding:52px 0 44px}
+    .hero p{font-size:19.5px}
+    .band,.sect,.quiz{padding:48px 0}
+    .callout,.practical,.notebox{padding:22px 20px}
+  }
+  @media print{
+    .internal,.quiz,.jump{display:none}
+    body{background:#fff;font-size:11pt}
+    .band{background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .pkg,.callout,.optgroup,.practical,.notebox,.sub-row{break-inside:avoid}
+    h2{break-after:avoid}
+    @page{size:A4;margin:18mm}
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+<section class="hero wrap">
+  <h1>A good start online, and someone to look after it</h1>
+  <p>A logo is a small thing that carries a lot. It goes on your door, your documents, your website and your invoices. Done well, you will still be using it in twenty years, and your clients will recognise you by it. It is worth taking the time to get it right.</p>
+  <p class="soft">We can start with just that. Or we can go further — website, social media, content, and keeping everything current. You decide how far to go, and you can always add more later.</p>
+  <a class="jump" href="#options">See the options</a>
+</section>
+
+<section class="band" id="options">
+  <div class="wrap">
+    <h2>What you can choose</h2>
+    <p>Seven areas, each with a few options. They differ in scope, not in care — we finish whichever one you choose properly. Most companies mix them: a simple option in one area, a fuller one in another.</p>
+
+    <div class="optgroup">
+      <h3>Logo and brand materials</h3>
+      <p class="intro">How far to take the visual identity depends on how many people will be using it and on what.</p>
+
+      <div class="opt">
+        <p class="opt-name">Essentials</p>
+        <p class="opt-desc">Everything you need day to day:</p>
+        <ul class="opt-list">
+          <li>Logo, with the variations you'll need in practice</li>
+          <li>Colours and typography</li>
+          <li>Business cards and letterhead</li>
+        </ul>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Mini brand guide</p>
+        <p class="opt-desc">A short document with the essentials written down — how the logo is used, spacing around it, the colour values, the typography, and a few examples.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Full Brand Guidelines</p>
+        <p class="opt-desc">A comprehensive manual covering all aspects of the visual identity and its application across a variety of promotional materials, including planners, pens, vehicles, uniforms, folders, and more.</p>
+      </div>
+    </div>
+
+    <div class="optgroup">
+      <h3>Website</h3>
+      <p class="intro">Start with what you need now. A site can grow later, and in most cases without being rebuilt.</p>
+
+      <div class="opt">
+        <p class="opt-name">Essentials website</p>
+        <p class="opt-desc">A complete, compact site covering what you do, who you do it for, a few words about your team, and how to reach you — along with the legal and privacy pages. Everything sits on one clearly structured page, which works particularly well on a phone and is quick to put live.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Small site, 4–6 pages</p>
+        <p class="opt-desc">Separate pages for your services, about you, contact and the legal information. Room to say more, without much to maintain.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Larger site, 7–10 pages</p>
+        <p class="opt-desc">A page for each service, a team page, a careers page if you are hiring, and a news section.</p>
+      </div>
+    </div>
+
+    <div class="optgroup">
+      <h3>Languages</h3>
+      <p class="intro">Worth deciding early, because it affects the website and everything published later.</p>
+
+      <div class="opt">
+        <p class="opt-name">One language (German)</p>
+        <p class="opt-desc">Simplest to keep current.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Machine translation, reviewed if needed</p>
+        <p class="opt-desc">We translate and tidy it up. Quick and affordable, and a good fit for a second language you mainly need for information.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Professional translation</p>
+        <p class="opt-desc">A translator does the work and your colleague reads it through, so the terms sound right for your field. We organise the translator and coordinate the whole thing if you prefer.</p>
+      </div>
+
+      <p class="after">Social media profiles and the newsletter are in German. That reaches the people nearby — families in your area and anyone thinking of working with you.</p>
+    </div>
+
+    <div class="optgroup">
+      <h3>Photographs</h3>
+      <p class="intro">Send us whatever photographs you already have and we'll use the ones that work. For everything else, there are three ways to go.</p>
+
+      <div class="opt">
+        <p class="opt-name">Free library images</p>
+        <p class="opt-desc">We choose them, check that they can be used commercially, and prepare them for the site. A practical and common choice.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Paid images with licences</p>
+        <p class="opt-desc">If you'd like a more specific look, we find and purchase the images and keep the licences on file for you.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Photoshoot</p>
+        <p class="opt-desc">If at some point you'd like photographs of your own team and premises, we can organise a photographer, prepare a list of shots and handle the consent forms. This can be done once and refreshed every couple of years.</p>
+      </div>
+    </div>
+
+    <div class="optgroup">
+      <h3>Social media</h3>
+      <p class="intro">We work with Instagram and Facebook, and with an email newsletter, all in German. Choose the level of activity that suits you — a quiet, well-kept profile is a perfectly good choice.</p>
+
+      <div class="opt">
+        <p class="opt-name">Profiles only</p>
+        <p class="opt-desc">We set up Instagram and Facebook so they match your brand: profile photo, cover, description, contact details, a link to your site.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Holidays and key dates</p>
+        <p class="opt-desc">Planned once for the year ahead and then it simply runs. The Swiss public holidays worth marking — New Year, Easter, 1 August, Christmas — your opening hours around them, your company anniversary, and one or two events of your own. We prepare the calendar, you approve it once, and the posts go out on the dates.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Regular posting</p>
+        <p class="opt-desc">A few posts a week on Instagram and Facebook. We prepare the text and the visuals; you approve them. Typical posts:</p>
+        <ul class="opt-list">
+          <li>Who we are, and what we do</li>
+          <li>Our services, one at a time</li>
+          <li>Our team</li>
+          <li>Where to find us and when we are open</li>
+          <li>What makes us different, and why people choose us</li>
+          <li>Useful information about care, explained simply</li>
+          <li>Holiday and seasonal greetings</li>
+        </ul>
+      </div>
+
+      <div class="practical">
+        <h4>Two practical points</h4>
+        <ul>
+          <li><strong>Where the ideas come from.</strong> At the start of each month we put the plan together in a short call — you tell us what is happening, we suggest the rest.</li>
+          <li><strong>Replies to messages and comments.</strong> These stay with you, since they often need someone who knows the client and the situation. If you would prefer us to handle them, we can look at it separately and agree how it would work.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="optgroup">
+      <h3>Content</h3>
+      <p class="intro">Whatever we agree, some of the material has to come from you — you know your work and your clients. The difference between these options is how much of the rest we take on.</p>
+
+      <div class="opt">
+        <p class="opt-name">You provide the content</p>
+        <p class="opt-desc">You send us the text and the ideas, we design the visuals and send them back, and you publish.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">You give us the topic</p>
+        <p class="opt-desc">You tell us the subject, we write it and design it, you review it, and you publish.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">We plan it together</p>
+        <p class="opt-desc">At the start of the month we agree a rough plan, we ask you for any details we need, then we prepare and design everything, send it for your approval and publish it.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Newsletter</p>
+        <p class="opt-desc">An email in German, once a month or once a quarter, to people who have asked to hear from you. Same principle: you approve it, we send it.</p>
+      </div>
+    </div>
+
+    <div class="optgroup">
+      <h3>Looking after the website</h3>
+      <p class="intro">Someone needs to keep the site running and up to date. You can do it yourself — we'll show you how and leave written instructions — or we can take it on.</p>
+
+      <div class="opt">
+        <p class="opt-name">Basic</p>
+        <p class="opt-desc">We keep the website's software current, make regular copies of the site so nothing gets lost, and check that it is online and working. If something goes wrong, we deal with it.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Standard</p>
+        <p class="opt-desc">Everything above, plus small changes whenever you need them: new text, a new photograph, a changed price, a job posting. Just send us an email.</p>
+      </div>
+
+      <div class="opt">
+        <p class="opt-name">Full</p>
+        <p class="opt-desc">Everything above, plus we go through the site a few times a year, refresh text and photographs that have aged, and let you know what is worth updating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect wrap">
+  <h2>Four packages</h2>
+  <p>Each package contains the one before it and adds something new. You can start with any of them, and move up when it suits you.</p>
+  <p>The one-time figure shown for each package is the full price for everything listed in it, not an amount added on top of the package before.</p>
+
+  <article class="pkg">
+    <div class="pkg-top"><span class="pkg-no">Package 1</span><h3 class="pkg-name">Foundation</h3></div>
+    <p class="pkg-fit">For a start from scratch: a proper logo and a complete, compact website in German.</p>
+    <ul>
+      <li>Logo, with the variations you'll need in practice</li>
+      <li>Colours and typography</li>
+      <li>Business cards and letterhead</li>
+      <li>Essentials website, in German</li>
+      <li>We set up and configure everything: domain, hosting, security certificate, email at your own domain, and your listing on Google so you appear in search and on the map. The subscriptions for these are paid to the providers separately — see the list further down</li>
+      <li>All files are yours, and everything is registered in your name</li>
+    </ul>
+    <div class="tags">
+      <div class="tag"><span class="tag-k">One-time</span><span class="tag-v">€2.250</span></div>
+      <div class="tag"><span class="tag-k">Monthly</span><span class="tag-v">—</span></div>
+    </div>
+    <p class="pkg-note">Finished and handed over. Website care can be added later whenever you like.</p>
+  </article>
+
+  <article class="pkg">
+    <div class="pkg-top"><span class="pkg-no">Package 2</span><h3 class="pkg-name">Foundation, plus profiles and care</h3></div>
+    <p class="pkg-fit">The same start, with social profiles and someone keeping an eye on things.</p>
+    <p class="inherit">Everything in Package 1, and:</p>
+    <ul>
+      <li>Instagram and Facebook profiles, set up to match your brand</li>
+      <li>Posts for the holidays and key dates, planned for the year ahead and agreed once</li>
+      <li>We look after the website: software kept current, regular copies of the site, and a check that it is online and working</li>
+      <li>Small changes when you need them — new text, a new photograph, changed opening hours</li>
+      <li>A short call every three months to go over how things are going</li>
+    </ul>
+    <div class="tags">
+      <div class="tag"><span class="tag-k">One-time</span><span class="tag-v">€3.000</span></div>
+      <div class="tag"><span class="tag-k">Monthly</span><span class="tag-v">€360</span></div>
+    </div>
+    <p class="pkg-note">In German. A second language comes with Package 3.</p>
+  </article>
+
+  <article class="pkg">
+    <div class="pkg-top"><span class="pkg-no">Package 3</span><h3 class="pkg-name">A larger website</h3></div>
+    <p class="pkg-fit">For when the compact site is no longer enough — several services to explain, or staff to recruit.</p>
+    <p class="inherit">Everything in Package 2, and:</p>
+    <ul>
+      <li>A website of 7–10 pages: a page per service, your team, contact, and a careers page if you are hiring</li>
+      <li>A second language alongside German</li>
+      <li>Mini brand guide</li>
+      <li>We look after the larger site in both languages — every change is made twice — and post for the holidays and key dates</li>
+    </ul>
+    <div class="tags">
+      <div class="tag"><span class="tag-k">One-time, from</span><span class="tag-v">€5.250</span></div>
+      <div class="tag"><span class="tag-k">Monthly</span><span class="tag-v">€450</span></div>
+    </div>
+    <p class="pkg-note">Translation and photographs are agreed separately, since they depend on what you choose.</p>
+  </article>
+
+  <article class="pkg">
+    <div class="pkg-top"><span class="pkg-no">Package 4</span><h3 class="pkg-name">Website and social media, looked after</h3></div>
+    <p class="pkg-fit">For when you'd like to be present regularly and would rather not manage it yourselves.</p>
+    <p class="inherit">Everything in Package 3, and:</p>
+    <ul>
+      <li>Full Brand Guidelines — a comprehensive manual covering the visual identity and its application across promotional materials</li>
+      <li>A few posts a week on Instagram and Facebook in German — we write and design them, you approve them</li>
+      <li>A short call at the start of each month to agree the plan</li>
+      <li>A monthly newsletter by email</li>
+      <li>You can edit the text and add news yourself — we'll show you how and leave written instructions</li>
+      <li>We go through the site a few times a year and refresh text and photographs that have aged</li>
+      <li>A short monthly note on how things are going</li>
+    </ul>
+    <div class="tags">
+      <div class="tag"><span class="tag-k">One-time, from</span><span class="tag-v">€8.250</span></div>
+      <div class="tag"><span class="tag-k">Monthly, from</span><span class="tag-v">€1.200</span></div>
+    </div>
+    <p class="pkg-note">Replies to messages and comments stay with you. If you would like us to take them on, we can agree that separately.</p>
+  </article>
+
+  <div class="callout">
+    <h3>And if you only want a logo, that's fine too</h3>
+    <p>Some of our nicest working relationships started with one small job. If a logo is all you need right now, we'll do that and leave the rest for whenever you're ready.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>What is not included in these prices</h2>
+    <p>Some things are paid directly to the providers rather than to us, because they are ongoing subscriptions in your name. We set them all up and manage them for you, we never add a margin to them, and you keep ownership of everything. These are Swiss providers and they bill in francs.</p>
+    <div class="notebox" style="margin-top:0">
+      <ul>
+        <li>Domain registration, renewed annually</li>
+        <li>Website hosting</li>
+        <li>SSL security certificate</li>
+        <li>Business email at your own domain</li>
+        <li>Image licences, if you choose paid photographs</li>
+        <li>Translation, where a professional translator is involved</li>
+        <li>A photographer, if you decide on a photoshoot</li>
+      </ul>
+    </div>
+    <p style="margin-top:22px">Translation and photography are one-off costs rather than subscriptions, and we will give you exact figures before anything is ordered.</p>
+
+    <h3>What this adds up to, package by package</h3>
+    <p>Indicative figures, rounded, excluding VAT. They sit on top of the package prices and are paid to the providers, not to us. The lower end of each range is a lean, sensible setup; the upper end is the more comfortable version, with a premium Swiss host and every optional line switched on.</p>
+
+    <div class="subs">
+      <div class="sub-row">
+        <div>
+          <p class="sub-name">Package 1 — Foundation</p>
+          <p class="sub-what">Domain, hosting, email, certificate, Google listing, simple statistics.</p>
+        </div>
+        <div class="sub-amt"><div class="sub-m">CHF 20–35</div><div class="sub-y">per month · CHF 240–420 a year</div></div>
+      </div>
+
+      <div class="sub-row">
+        <div>
+          <p class="sub-name">Package 2 — Foundation, plus profiles and care</p>
+          <p class="sub-what">Everything above, plus a design tool licence so your templates stay usable.</p>
+        </div>
+        <div class="sub-amt"><div class="sub-m">CHF 28–45</div><div class="sub-y">per month · CHF 340–540 a year</div></div>
+      </div>
+
+      <div class="sub-row">
+        <div>
+          <p class="sub-name">Package 3 — A larger website</p>
+          <p class="sub-what">Everything above, plus the second language and post scheduling.</p>
+        </div>
+        <div class="sub-amt"><div class="sub-m">CHF 47–70</div><div class="sub-y">per month · CHF 560–840 a year</div></div>
+      </div>
+
+      <div class="sub-row">
+        <div>
+          <p class="sub-name">Package 4 — Website and social media, looked after</p>
+          <p class="sub-what">Everything above, plus fuller reporting, a photo library and small automations.</p>
+        </div>
+        <div class="sub-amt"><div class="sub-m">CHF 80–110</div><div class="sub-y">per month · CHF 970–1'330 a year</div></div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px">Most providers offer a cheap first year and a normal price afterwards. The figures above are the normal price, so the second year holds no surprises. Prices checked September 2026, and we will confirm the exact figures for your setup before anything is ordered. All package prices also exclude VAT.</p>
+  </div>
+</section>
+
+<section class="quiz" id="recommend">
+  <div class="wrap">
+    <h2>Not sure where to start?</h2>
+    <p>Six short questions, and we'll suggest a package. Nothing is sent anywhere — the answers stay on your screen.</p>
+
+    <form id="quizForm">
+      <div class="q">
+        <span class="q-label">1. What do you have at the moment?</span>
+        <div class="q-opts">
+          <label><input type="radio" name="q1" value="0"><span>Nothing yet — no logo, no website</span></label>
+          <label><input type="radio" name="q1" value="1"><span>A logo of some kind, but nothing else</span></label>
+          <label><input type="radio" name="q1" value="2"><span>An older website that no longer fits us</span></label>
+          <label><input type="radio" name="q1" value="3"><span>A reasonable website, but nobody keeps it up to date</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="q-label">2. What matters most to you this year?</span>
+        <div class="q-opts">
+          <label><input type="radio" name="q2" value="0"><span>That we look professional when someone looks us up</span></label>
+          <label><input type="radio" name="q2" value="1"><span>More enquiries from families looking for care</span></label>
+          <label><input type="radio" name="q2" value="2"><span>Finding good staff</span></label>
+          <label><input type="radio" name="q2" value="3"><span>Being present regularly, so people get to know us</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="q-label">3. Which languages does the website need?</span>
+        <div class="q-opts">
+          <label><input type="radio" name="q3" value="0"><span>German is enough</span></label>
+          <label><input type="radio" name="q3" value="1"><span>German and one more</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="q-label">4. Who will look after it once it's live?</span>
+        <div class="q-opts">
+          <label><input type="radio" name="q4" value="0"><span>We'd like to do it ourselves — show us how</span></label>
+          <label><input type="radio" name="q4" value="1"><span>Someone here has an hour or two a month</span></label>
+          <label><input type="radio" name="q4" value="1"><span>Someone here has time and would enjoy it</span></label>
+          <label><input type="radio" name="q4" value="3"><span>Nobody, honestly — we'd rather hand it over</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="q-label">5. How often would you like to post?</span>
+        <div class="q-opts">
+          <label><input type="radio" name="q5" value="0"><span>We don't need to post — just be easy to find</span></label>
+          <label><input type="radio" name="q5" value="1"><span>Only for the holidays and a few key dates</span></label>
+          <label><input type="radio" name="q5" value="3"><span>A few times a week, all year round</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="q-label">6. What photographs do you have?</span>
+        <div class="q-opts">
+          <label><input type="radio" name="q6" value="0"><span>Good photos of our team and premises</span></label>
+          <label><input type="radio" name="q6" value="0"><span>A few usable ones</span></label>
+          <label><input type="radio" name="q6" value="1"><span>None — free library images are fine for us</span></label>
+          <label><input type="radio" name="q6" value="2"><span>None, and we'd like a photoshoot at some point</span></label>
+        </div>
+      </div>
+
+      <button type="button" class="quiz-btn" id="quizBtn">Show my suggestion</button>
+      <p class="quiz-hint" id="quizHint">Answer all six questions to see a suggestion.</p>
+    </form>
+
+    <div id="result" aria-live="polite">
+      <div class="res-card">
+        <span class="res-tag">A good place to start</span>
+        <h3 id="rNow"></h3>
+        <p id="rNowWhy"></p>
+        <p class="res-price" id="rNowPrice"></p>
+      </div>
+      <div class="res-opts">
+        <h4>Options we'd suggest for you</h4>
+        <div class="res-row"><div class="res-k">Brand materials</div><div class="res-v" id="oBrand"></div></div>
+        <div class="res-row"><div class="res-k">Website</div><div class="res-v" id="oSite"></div></div>
+        <div class="res-row"><div class="res-k">Languages</div><div class="res-v" id="oLang"></div></div>
+        <div class="res-row"><div class="res-k">Photographs</div><div class="res-v" id="oVis"></div></div>
+        <div class="res-row"><div class="res-k">Social media</div><div class="res-v" id="oSocial"></div></div>
+        <div class="res-row"><div class="res-k">Content</div><div class="res-v" id="oContent"></div></div>
+        <div class="res-row"><div class="res-k">Website care</div><div class="res-v" id="oMaint"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close wrap">
+  <h2>We'll be here for the next step, too</h2>
+  <p>You can start at any of these levels. When you feel you've outgrown it, we'll talk about what comes next — and if we think you don't need it yet, we'll say so.</p>
+  <p>We can take on as much or as little as suits you: the design and the build, the writing, translation, photographs, and looking after everything afterwards.</p>
+  <p>Two things worth knowing. Everything is registered in your name from the first day — the domain, the accounts, the files — so it stays yours whatever happens. And for anything larger, we write down what is included and what it costs before we start, so there are no surprises later.</p>
+
+  <div class="cta">
+    <p class="cta-line">The easiest first step is a conversation.</p>
+    <p>Half an hour is usually enough. Tell us where you are and what you'd like, and we'll suggest where to begin and what it would cost.</p>
+    <p class="cta-contact">Nina Ninković Gašić · <a href="mailto:ajmostudio@gmail.com">ajmostudio@gmail.com</a> · <a href="tel:+38765395000">+387 65 395 000</a></p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>Ajmo studio · ajmostudio@gmail.com · +387 65 395 000. Prices exclude VAT and the subscriptions paid directly to providers.</p>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  var PKG = {
+    1:{name:"Package 1 — Foundation", price:"€2.250 one-time"},
+    2:{name:"Package 2 — Foundation, plus profiles and care", price:"€3.000 one-time, then €360 a month"},
+    3:{name:"Package 3 — A larger website", price:"From €5.250 one-time, then €450 a month"},
+    4:{name:"Package 4 — Website and social media, looked after", price:"From €8.250 one-time, then from €1.200 a month"}
+  };
+
+  var WHY = {
+    1:"A logo and a compact, complete website will cover what you need for now. It is a small, finished job, and it gives you something solid to build on when you are ready.",
+    2:"The foundations, with someone keeping them current. This is where most companies start, because a site that stays up to date keeps working for you long after it goes live.",
+    3:"You have more to say than a compact site can hold — several services, perhaps a careers page, and a second language alongside German. The website becomes the main thing, and posting stays light.",
+    4:"You'd like to be present regularly, and you'd rather not have to remember to do it. We take on the posts and the newsletter, and keep the site current alongside them."
+  };
+
+  function val(n){var el=document.querySelector('input[name="'+n+'"]:checked');return el?parseInt(el.value,10):null;}
+  function idx(n){var els=document.getElementsByName(n);for(var i=0;i<els.length;i++){if(els[i].checked)return i;}return -1;}
+
+  function decide(s){
+    var total = s.q1+s.q2+s.q3+s.q4+s.q5+s.q6;
+    var p = total <= 3 ? 1 : total <= 7 ? 2 : total <= 11 ? 3 : 4;
+    if(s.q3 >= 1 && p < 3) p = 3;   // a second language starts at Package 3
+    if(s.q5 === 3) p = 4;           // posting a few times a week only exists in Package 4
+    if(s.q4 === 3 && p < 2) p = 2;  // nobody to look after it — never a one-off
+    if(s.q5 === 0 && s.q4 === 0 && s.q1 === 0 && s.q3 === 0) p = 1;
+    return p;
+  }
+
+  function options(s,a,p){
+    var o = {};
+
+    o.brand = p <= 2 ? "Essentials \u2014 logo, colours, typography, business cards and letterhead."
+            : p === 3 ? "Essentials, plus the mini brand guide."
+            : "Essentials, plus the Full Brand Guidelines \u2014 the complete manual, covering application across promotional materials.";
+
+    o.site = p <= 2 ? "Essentials website \u2014 compact and complete, and it can grow later."
+           : p === 3 ? "Larger site, 7\u201310 pages, in two languages."
+           : "Larger site, 7\u201310 pages, in two languages, with text you can edit yourself.";
+
+    o.lang = s.q3 === 1 ? "German and one more, with German as the original. Worth settling before we build."
+           : p >= 3 ? "German is enough for now. A second language is part of this package, so you can add it whenever you are ready."
+           : "German only \u2014 the simplest to keep current.";
+
+    o.vis = a.q6 === 0 ? "Your own photographs \u2014 send them over and we'll select and prepare them."
+          : a.q6 === 1 ? "Your own photographs where they work well, with free library images to fill the gaps."
+          : a.q6 === 2 ? "Free library images. We'll choose ones that suit you."
+          : "Free library images to begin with, and a photoshoot whenever you're ready \u2014 no need to decide now.";
+
+    o.social = p === 1 ? "Not part of Package 1. We can set up Instagram and Facebook whenever you decide you want them."
+             : p === 4 ? "Instagram and Facebook profiles, with a few posts a week in German."
+             : s.q5 === 0 ? "Instagram and Facebook profiles, plus the handful of holiday posts that come with the package \u2014 nothing more to keep up with."
+             : "Instagram and Facebook profiles, plus posts for the holidays and key dates, planned for the year ahead.";
+
+    o.content = p === 1 ? "The website text is written once, with your input. There is no ongoing content in this package."
+              : p === 4 ? "We plan each month together, then write, design and publish \u2014 you approve before anything goes out."
+              : s.q4 === 0 ? "We prepare the holiday posts. For anything beyond that, you write the text and we design it."
+              : "We prepare the holiday posts. For anything beyond that, you give us the topic and we write it.";
+
+    o.maint = p === 1 ? "Not part of Package 1 \u2014 it is handed over finished. Website care can be added at any time."
+            : p === 4 ? "Full care, including refreshing text and photographs through the year."
+            : "Standard care: we keep the site running, and make small changes whenever you need them.";
+
+    return o;
+  }
+
+  function show(){
+    var names=["q1","q2","q3","q4","q5","q6"], s={}, a={}, missing=false;
+    names.forEach(function(n){var v=val(n); if(v===null) missing=true; s[n]=v; a[n]=idx(n);});
+
+    var hint = document.getElementById("quizHint");
+    if(missing){ hint.textContent = "Just a couple left — please answer all six."; return; }
+    hint.textContent = "Change an answer and press again to update.";
+
+    var p = decide(s), o = options(s,a,p);
+
+    document.getElementById("rNow").textContent = PKG[p].name;
+    document.getElementById("rNowWhy").textContent = WHY[p];
+    document.getElementById("rNowPrice").textContent = PKG[p].price;
+
+    document.getElementById("oBrand").textContent = o.brand;
+    document.getElementById("oSite").textContent = o.site;
+    document.getElementById("oLang").textContent = o.lang;
+    document.getElementById("oVis").textContent = o.vis;
+    document.getElementById("oSocial").textContent = o.social;
+    document.getElementById("oContent").textContent = o.content;
+    document.getElementById("oMaint").textContent = o.maint;
+
+    var res = document.getElementById("result");
+    res.classList.add("on");
+    res.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  document.getElementById("quizBtn").addEventListener("click", show);
+})();
+</script>
+</body>
+</html>
